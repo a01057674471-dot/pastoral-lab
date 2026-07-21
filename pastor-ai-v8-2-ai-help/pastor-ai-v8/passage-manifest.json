@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "defaultPassageId": "judges-06",
+  "passages": [
+    {
+      "id": "judges-06",
+      "label": "사사기 6장",
+      "book": "judges",
+      "chapter": 6,
+      "path": "chapter06.json",
+      "status": "gold-standard",
+      "keywords": [
+        "사사기 6장",
+        "삿6",
+        "기드온",
+        "미디안",
+        "바알",
+        "아세라",
+        "여룹바알",
+        "양털 표징",
+        "여호와 샬롬",
+        "큰 용사"
+      ]
+    }
+  ]
+}
