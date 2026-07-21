@@ -113,3 +113,43 @@
 .prompt-head button{border:0;border-radius:12px;background:#1f5a3b;color:#fff;padding:10px 14px;font-weight:800;font-size:.8rem}
 .prompt-box pre{margin:0;padding:18px;white-space:pre-wrap;word-break:keep-all;font-family:inherit;line-height:1.7;font-size:.84rem;color:#34423a;max-height:520px;overflow:auto}
 @media(max-width:520px){.ai-task-grid{grid-template-columns:1fr 1fr}.ai-task-button{min-height:132px;padding:16px 12px}.ai-recommend{align-items:flex-start}.ai-recommend div{grid-template-columns:1fr}.ai-recommend span,.ai-recommend small{grid-column:1}.ai-recommend strong{padding-top:2px}}
+
+/* V8.3 데스크톱·태블릿·모바일 반응형 레이아웃 */
+@media (min-width: 900px){
+  body{background:linear-gradient(135deg,#eaf1ec 0%,#f8faf8 45%,#edf4ef 100%);}
+  .app{max-width:1180px;min-height:100vh;box-shadow:0 0 42px rgba(23,63,44,.12);padding-bottom:104px;}
+  .top{padding:16px 34px;}
+  .toprow{max-width:1110px;margin:0 auto;}
+  main{padding:34px 42px 54px;max-width:1110px;margin:0 auto;}
+  .welcome-card{padding:36px 38px;border-radius:28px;margin-bottom:24px;}
+  .welcome-card h1{font-size:2.15rem;}
+  .welcome-card p{font-size:1.08rem;}
+  .home-menu{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+  .home-tile{min-height:112px;padding:22px;border-radius:23px;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;}
+  .home-tile:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(23,63,44,.11);border-color:#b8cdbf;}
+  .home-icon{width:64px;height:64px;flex-basis:64px;font-size:1.85rem;border-radius:19px;}
+  .home-tile b{font-size:1.18rem;}
+  .home-tile small{font-size:.9rem;}
+  .hero,.research-head,.plan-hero{padding:30px 32px;}
+  .card,.plan-step-card,.focus-card{padding:26px;}
+  .ai-task-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;}
+  .ai-task-button{min-height:165px;padding:22px 18px;transition:transform .18s ease,box-shadow .18s ease;}
+  .ai-task-button:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(23,63,44,.1);}
+  .summary-grid{grid-template-columns:repeat(4,minmax(0,1fr));}
+  .plan-actions,.note-tools{grid-template-columns:repeat(2,minmax(0,1fr));}
+  nav{width:min(1180px,100%);padding:9px 24px 10px;}
+  nav button{font-size:.8em;min-height:66px;}
+  nav button span{font-size:1.7em;}
+}
+
+@media (min-width: 900px) and (max-width: 1100px){
+  .app{max-width:94vw;}
+  main{padding:30px;}
+  .ai-task-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  nav{width:94vw;}
+}
+
+@media (max-width: 899px){
+  .app{max-width:100%;}
+  nav{width:100%;}
+}
