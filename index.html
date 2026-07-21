@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#173f2c">
+  <meta name="description" content="목회자의 시간을 말씀과 사람에게 돌려드리는 목회 준비 플랫폼">
+  <title>Pastoral Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" aria-label="주요 메뉴">
+      <button class="brand" data-screen="home" aria-label="Pastoral Lab 홈">
+        <span class="brand-mark">P</span>
+        <span class="brand-copy">
+          <strong>Pastoral Lab</strong>
+          <small>목회 준비 플랫폼</small>
+        </span>
+      </button>
+
+      <nav class="side-nav">
+        <button class="side-item active" data-screen="home"><span>⌂</span><b>홈</b></button>
+        <button class="side-item" data-screen="library"><span>▤</span><b>내 서재</b></button>
+        <button class="side-item" data-screen="research"><span>⌕</span><b>성경 연구</b></button>
+        <button class="side-item" data-new-type="주일설교"><span>✎</span><b>설교 준비</b></button>
+        <button class="side-item" data-new-type="대표기도"><span>✦</span><b>기도문 작성</b></button>
+        <button class="side-item" data-screen="settings"><span>⚙</span><b>설정</b></button>
+      </nav>
+
+      <div class="sidebar-note">
+        <p>작성한 내용은 자동 저장됩니다.</p>
+      </div>
+    </aside>
+
+    <div class="main-shell">
+      <header class="topbar">
+        <button class="mobile-brand" data-screen="home">
+          <span class="brand-mark">P</span>
+          <strong>Pastoral Lab</strong>
+        </button>
+        <div class="top-actions">
+          <button class="text-button" id="fontButton">가+</button>
+          <button class="profile-button" data-screen="settings" id="profileButton">황</button>
+        </div>
+      </header>
+
+      <main>
+        <section class="screen active" id="home">
+          <div class="home-layout">
+            <div class="home-main">
+              <div class="greeting">
+                <p class="eyebrow" id="timeGreeting">좋은 아침입니다.</p>
+                <h1><span id="pastorName">황순영</span> 목사님</h1>
+                <p class="lead">오늘 무엇을 준비하시나요?</p>
+              </div>
+
+              <div class="action-grid">
+                <button class="action-card featured" data-new-type="주일설교">
+                  <span class="action-icon">📖</span>
+                  <span class="action-copy">
+                    <strong>주일설교 준비하기</strong>
+                    <small>본문 선택부터 설교 초안까지</small>
+                  </span>
+                  <span class="arrow">→</span>
+                </button>
+
+                <button class="action-card" data-new-type="수요예배">
+                  <span class="action-icon">✍️</span>
+                  <span class="action-copy">
+                    <strong>수요예배 준비하기</strong>
+                    <small>말씀과 적용을 차근차근 정리합니다</small>
+                  </span>
+                  <span class="arrow">→</span>
+                </button>
+
+                <button class="action-card" data-new-type="대표기도">
+                  <span class="action-icon">🙏</span>
+                  <span class="action-copy">
+                    <strong>대표기도 작성하기</strong>
+                    <small>예배 상황에 맞게 정리합니다</small>
+                  </span>
+                  <span class="arrow">→</span>
+                </button>
+
+                <button class="action-card" data-screen="research">
+                  <span class="action-icon">📚</span>
+                  <span class="action-copy">
+                    <strong>성경 연구 시작하기</strong>
+                    <small>배경·문맥·핵심 메시지를 살펴봅니다</small>
+                  </span>
+                  <span class="arrow">→</span>
+                </button>
+              </div>
+
+              <section class="section">
+                <div class="section-head">
+                  <div>
+                    <p class="eyebrow">최근 작업</p>
+                    <h2>지난 작업 이어하기</h2>
+                  </div>
+                  <button class="link-button" data-screen="library">전체 보기</button>
+                </div>
+                <div id="resumeCard"></div>
+              </section>
+            </div>
+
+            <aside class="home-side">
+              <section class="info-card">
+                <p class="eyebrow">오늘의 방향</p>
+                <h2>한 번에 하나씩 준비하세요.</h2>
+                <p>급하게 완성하기보다, 말씀을 천천히 정리할 수 있도록 돕습니다.</p>
+              </section>
+
+              <section class="info-card muted-card">
+                <div class="info-row">
+                  <span>자동 저장</span>
+                  <strong>켜짐</strong>
+                </div>
+                <div class="info-row">
+                  <span>저장된 작업</span>
+                  <strong id="workCount">0개</strong>
+                </div>
+                <div class="info-row">
+                  <span>큰 글씨</span>
+                  <strong id="fontState">기본</strong>
+                </div>
+              </section>
+            </aside>
+          </div>
+        </section>
+
+        <section class="screen" id="library">
+          <div class="page-head">
+            <div>
+              <p class="eyebrow">나의 기록</p>
+              <h1>내 서재</h1>
+              <p>설교와 기도문, 성경 연구 기록을 한곳에서 찾습니다.</p>
+            </div>
+            <button class="primary-button compact" data-new-type="주일설교">새 작업 시작</button>
+          </div>
+
+          <div class="filter-row">
+            <button class="filter active" data-filter="전체">전체</button>
+            <button class="filter" data-filter="설교">설교</button>
+            <button class="filter" data-filter="기도">기도</button>
+            <button class="filter" data-filter="연구">연구</button>
+          </div>
+          <div id="libraryList" class="library-grid"></div>
+        </section>
+
+        <section class="screen" id="research">
+          <div class="content-narrow">
+            <div class="page-head simple">
+              <div>
+                <p class="eyebrow">성경 연구</p>
+                <h1>어떤 본문을 살펴볼까요?</h1>
+                <p>본문을 입력하면 연구 노트를 바로 시작할 수 있습니다.</p>
+              </div>
+            </div>
+
+            <form class="form-card" id="researchForm">
+              <label for="passageInput">성경 본문</label>
+              <input id="passageInput" placeholder="예: 창세기 22장 1–19절" required>
+
+              <label for="researchQuestion">궁금한 점 <span>(선택)</span></label>
+              <textarea id="researchQuestion" placeholder="예: 하나님은 왜 아브라함을 시험하셨을까?"></textarea>
+
+              <button class="primary-button" type="submit">성경 연구 시작하기</button>
+            </form>
+          </div>
+        </section>
+
+        <section class="screen" id="editor">
+          <div class="editor-layout">
+            <section class="editor-main">
+              <div class="editor-head">
+                <div>
+                  <p class="eyebrow" id="editorType">주일설교</p>
+                  <h1 id="editorTitle">새 작업</h1>
+                </div>
+                <span class="save-state" id="saveState">저장됨</span>
+              </div>
+
+              <div class="editor-form">
+                <label for="workTitle">제목</label>
+                <input id="workTitle" placeholder="설교 제목 또는 작업 이름">
+
+                <label for="workPassage">본문 또는 예배 상황</label>
+                <input id="workPassage" placeholder="예: 요한복음 15장 1–8절">
+
+                <label for="workBody">내용</label>
+                <textarea id="workBody" class="editor-textarea" placeholder="묵상한 내용과 설교의 흐름을 편하게 적으세요."></textarea>
+              </div>
+            </section>
+
+            <aside class="editor-side">
+              <section class="info-card sticky-card">
+                <p class="eyebrow">작성 진행</p>
+                <div class="progress-track"><span id="progressBar"></span></div>
+                <p class="progress-text" id="progressText">작성 진행 0%</p>
+                <button class="secondary-button" id="finishButton">오늘은 여기까지</button>
+                <button class="ghost-button" data-screen="library">내 서재 보기</button>
+              </section>
+            </aside>
+          </div>
+        </section>
+
+        <section class="screen" id="settings">
+          <div class="content-narrow">
+            <div class="page-head simple">
+              <div>
+                <p class="eyebrow">환경 설정</p>
+                <h1>설정</h1>
+                <p>사용하기 편한 상태로 맞춰두세요.</p>
+              </div>
+            </div>
+
+            <div class="settings-grid">
+              <section class="form-card">
+                <h2>기본 정보</h2>
+                <label for="nameInput">목사님 성함</label>
+                <input id="nameInput" placeholder="성함">
+                <button class="primary-button" id="saveNameButton">이름 저장하기</button>
+              </section>
+
+              <section class="form-card">
+                <h2>자료 관리</h2>
+                <p class="muted">이 기기에 저장된 작업을 백업하거나 초기화합니다.</p>
+                <button class="secondary-button" id="backupButton">자료 백업하기</button>
+                <button class="danger-button" id="resetButton">모든 자료 지우기</button>
+              </section>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <nav class="bottom-nav" aria-label="모바일 주요 메뉴">
+      <button class="bottom-item active" data-screen="home"><span>⌂</span>홈</button>
+      <button class="bottom-item" data-screen="library"><span>▤</span>내 서재</button>
+      <button class="bottom-item" data-screen="research"><span>⌕</span>성경 연구</button>
+      <button class="bottom-item" data-screen="settings"><span>⚙</span>설정</button>
+    </nav>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
