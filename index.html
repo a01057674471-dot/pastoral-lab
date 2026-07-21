@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#173f35" />
+  <title>목회 연구실 AI | 화성 아가페교회</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">牧</div>
+        <div>
+          <strong>목회 연구실 AI</strong>
+          <span>화성 아가페교회</span>
+        </div>
+      </div>
+
+      <div class="pastor-card">
+        <div class="avatar">황</div>
+        <div>
+          <strong>황순영 목사님</strong>
+          <span>전용 목회 AI</span>
+        </div>
+      </div>
+
+      <nav class="nav-list" aria-label="주 메뉴">
+        <button class="nav-item active" data-view="home"><span>⌂</span>홈</button>
+        <button class="nav-item" data-view="study"><span>▤</span>성경 연구</button>
+        <button class="nav-item" data-view="ai"><span>✦</span>AI 연구실</button>
+        <button class="nav-item" data-view="notes"><span>□</span>연구 노트</button>
+        <button class="nav-item" data-view="roadmap"><span>◎</span>교회 로드맵</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <button class="ghost-button" id="churchProfileBtn">교회 설정</button>
+        <small>자동 저장됨 · 이 기기</small>
+      </div>
+    </aside>
+
+    <div class="main-wrap">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="메뉴 열기">☰</button>
+        <div class="global-search">
+          <span>⌕</span>
+          <input id="globalSearch" type="search" placeholder="본문, 인물, 원어, 노트, 로드맵 검색" />
+        </div>
+        <div class="top-actions">
+          <span class="save-state" id="saveState">모든 변경사항 저장됨</span>
+          <button class="icon-button" id="helpBtn" title="도움말">?</button>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="view active" id="view-home">
+          <div class="hero">
+            <div>
+              <span class="eyebrow">화성 아가페교회 · 황순영 목사님 전용</span>
+              <h1>오늘의 목회 준비를<br><em>한곳에서 시작하세요.</em></h1>
+              <p>성경 연구부터 설교 정리, 교회 문서와 미래 로드맵까지 AI가 필요한 질문을 먼저 드립니다.</p>
+              <div class="hero-actions">
+                <button class="primary-button" data-go="study">본문 연구 시작</button>
+                <button class="secondary-button" data-go="ai">AI 작업 도우미</button>
+              </div>
+            </div>
+            <div class="verse-card">
+              <span>오늘의 말씀</span>
+              <blockquote>“너는 진리의 말씀을 옳게 분별하며 부끄러울 것이 없는 일꾼으로 인정된 자로 자신을 하나님 앞에 드리기를 힘쓰라.”</blockquote>
+              <strong>디모데후서 2:15</strong>
+            </div>
+          </div>
+
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">빠른 시작</span>
+              <h2>무엇을 준비하고 계신가요?</h2>
+            </div>
+          </div>
+
+          <div class="quick-grid">
+            <button class="quick-card" data-go="study">
+              <span class="card-icon">📖</span>
+              <strong>성경 본문 연구</strong>
+              <small>본문·원어·배경·주석을 함께 확인합니다.</small>
+            </button>
+            <button class="quick-card" data-task="sermon-summary">
+              <span class="card-icon">📝</span>
+              <strong>설교문 정리</strong>
+              <small>1페이지 요약, 주보, 소그룹 자료로 바꿉니다.</small>
+            </button>
+            <button class="quick-card" data-task="image">
+              <span class="card-icon">🖼️</span>
+              <strong>설교 이미지 만들기</strong>
+              <small>AI 티를 줄인 자연스러운 프롬프트를 만듭니다.</small>
+            </button>
+            <button class="quick-card" data-go="roadmap">
+              <span class="card-icon">🧭</span>
+              <strong>교회 로드맵</strong>
+              <small>1년·3년·5년 계획을 실행 문서로 정리합니다.</small>
+            </button>
+          </div>
+
+          <div class="dashboard-grid">
+            <section class="panel recent-panel">
+              <div class="panel-title">
+                <h3>최근 작업</h3>
+                <button class="text-button">전체 보기</button>
+              </div>
+              <div class="recent-list" id="recentList"></div>
+            </section>
+
+            <section class="panel today-panel">
+              <div class="panel-title">
+                <h3>이번 주 준비</h3>
+                <span class="badge">3개</span>
+              </div>
+              <label class="check-row"><input type="checkbox"> 주일 설교 본문 연구</label>
+              <label class="check-row"><input type="checkbox"> 교역자 회의 자료 정리</label>
+              <label class="check-row"><input type="checkbox"> 새가족 정착 계획 점검</label>
+              <button class="add-task">+ 할 일 추가</button>
+            </section>
+          </div>
+        </section>
+
+        <section class="view" id="view-study">
+          <div class="page-title">
+            <div><span class="eyebrow">성경 연구</span><h1>본문을 깊이 읽는 공간</h1></div>
+            <button class="primary-button" id="saveStudyBtn">연구 노트에 저장</button>
+          </div>
+
+          <div class="study-layout">
+            <aside class="study-left panel">
+              <label>성경 선택</label>
+              <select id="bookSelect">
+                <option>사사기</option><option>창세기</option><option>출애굽기</option><option>시편</option><option>마태복음</option><option>요한복음</option>
+              </select>
+              <label>장</label>
+              <select id="chapterSelect"><option>6장</option><option>1장</option><option>2장</option><option>3장</option></select>
+              <div class="mini-title">최근 연구</div>
+              <button class="mini-link">사사기 6장 · 기드온</button>
+              <button class="mini-link">요한복음 15장 · 포도나무</button>
+              <button class="mini-link">시편 23편 · 목자</button>
+            </aside>
+
+            <section class="study-center panel">
+              <div class="tabs" role="tablist">
+                <button class="tab active" data-tab="text">본문</button>
+                <button class="tab" data-tab="original">원어</button>
+                <button class="tab" data-tab="background">배경</button>
+                <button class="tab" data-tab="commentary">주석</button>
+                <button class="tab" data-tab="compare">비교</button>
+              </div>
+              <article class="tab-content active" id="tab-text">
+                <div class="passage-head"><h2>사사기 6장</h2><span>개역개정</span></div>
+                <p><b>11</b> 여호와의 사자가 아비에셀 사람 요아스에게 속한 오브라에 이르러 상수리나무 아래에 앉으니라...</p>
+                <p class="selected-verse"><b>12</b> 여호와의 사자가 기드온에게 나타나 이르되 큰 용사여 여호와께서 너와 함께 계시도다 하매</p>
+                <p><b>13</b> 기드온이 그에게 대답하되 오 나의 주여 여호와께서 우리와 함께 계시면 어찌하여 이 모든 일이 우리에게 일어났나이까...</p>
+                <p><b>14</b> 여호와께서 그를 향하여 이르시되 너는 가서 이 너의 힘으로 이스라엘을 미디안의 손에서 구원하라...</p>
+              </article>
+              <article class="tab-content" id="tab-original">
+                <h3>주요 원어</h3>
+                <div class="word-card"><strong>גִּבּוֹר — 깁보르</strong><span>강한 자, 용사 · Strong H1368</span><p>기드온의 현재 모습보다 하나님이 그를 통해 이루실 정체성을 먼저 선언하는 표현입니다.</p></div>
+                <div class="word-card"><strong>עִמְּךָ — 임메카</strong><span>너와 함께 · 전치사+2인칭 남성 단수</span><p>소명보다 앞서는 하나님의 임재를 강조합니다.</p></div>
+              </article>
+              <article class="tab-content" id="tab-background">
+                <h3>역사·문화 배경</h3><p>미디안의 반복적인 침입으로 이스라엘은 농작물을 숨겨야 했고, 기드온이 포도주 틀에서 밀을 타작하는 장면은 두려움과 생존 압박을 보여줍니다.</p>
+              </article>
+              <article class="tab-content" id="tab-commentary">
+                <h3>주석 핵심 정리</h3><p>본문의 중심은 기드온의 자신감이 아니라, 연약한 사람을 부르시고 함께하시는 하나님의 주권적 은혜입니다.</p>
+              </article>
+              <article class="tab-content" id="tab-compare">
+                <h3>번역 비교</h3><div class="compare-row"><strong>개역개정</strong><span>큰 용사여 여호와께서 너와 함께 계시도다</span></div><div class="compare-row"><strong>새번역</strong><span>힘센 용사야, 주님께서 너와 함께 계신다</span></div>
+              </article>
+            </section>
+
+            <aside class="study-right panel">
+              <div class="panel-title"><h3>연구 노트</h3><span class="autosave">자동 저장</span></div>
+              <textarea id="studyNote" placeholder="본문에서 발견한 내용을 기록하세요...">핵심: 하나님은 두려움 속에 숨어 있는 기드온을 ‘큰 용사’라고 먼저 부르신다.
+
+설교 연결: 부르심은 현재 능력보다 하나님의 함께하심에 근거한다.</textarea>
+              <button class="secondary-button full" id="askAiBtn">이 본문을 AI에게 질문</button>
+            </aside>
+          </div>
+        </section>
+
+        <section class="view" id="view-ai">
+          <div class="page-title"><div><span class="eyebrow">AI 연구실</span><h1>프롬프트를 몰라도 됩니다</h1><p>원하는 결과를 고르면 필요한 질문을 AI가 먼저 드립니다.</p></div></div>
+          <div class="assistant-grid">
+            <button class="assistant-card" data-task="bible"><span>📚</span><strong>성경 질문</strong><small>본문과 신학적 쟁점을 연구합니다.</small></button>
+            <button class="assistant-card" data-task="feedback"><span>🔎</span><strong>설교 점검</strong><small>본문 충실도와 논리 흐름을 확인합니다.</small></button>
+            <button class="assistant-card" data-task="sermon-summary"><span>📝</span><strong>설교문 정리</strong><small>요약, 주보, 나눔 자료로 변환합니다.</small></button>
+            <button class="assistant-card" data-task="blog"><span>✍️</span><strong>교회 글쓰기</strong><small>블로그·행사 안내·목회 칼럼을 작성합니다.</small></button>
+            <button class="assistant-card" data-task="image"><span>🖼️</span><strong>설교 이미지</strong><small>자연스러운 이미지 프롬프트를 생성합니다.</small></button>
+            <button class="assistant-card" data-task="refine"><span>✨</span><strong>내 요청 다듬기</strong><small>짧은 요청을 좋은 명령으로 바꿉니다.</small></button>
+          </div>
+
+          <section class="panel prompt-panel">
+            <div class="panel-title"><h3>빠르게 요청하기</h3><span class="badge">황순영 목사님 모드</span></div>
+            <textarea id="quickPrompt" placeholder="예: 이번 주 설교를 교회 블로그 글로 정리해줘"></textarea>
+            <div class="prompt-actions"><button class="secondary-button" id="refineBtn">요청 먼저 다듬기</button><button class="primary-button" id="runPromptBtn">AI에게 요청</button></div>
+          </section>
+        </section>
+
+        <section class="view" id="view-notes">
+          <div class="page-title"><div><span class="eyebrow">연구 노트</span><h1>목사님의 두 번째 기억</h1></div><button class="primary-button" id="newNoteBtn">+ 새 노트</button></div>
+          <div class="notes-layout">
+            <aside class="panel notes-sidebar"><button class="folder active">전체 노트 <span>4</span></button><button class="folder">설교 연구 <span>2</span></button><button class="folder">교회 운영 <span>1</span></button><button class="folder">기도와 묵상 <span>1</span></button></aside>
+            <section class="notes-grid" id="notesGrid"></section>
+          </div>
+        </section>
+
+        <section class="view" id="view-roadmap">
+          <div class="page-title"><div><span class="eyebrow">AI 교회 로드맵</span><h1>화성 아가페교회의 다음 걸음을 문서로</h1><p>막연한 비전을 담당자·일정·점검 기준이 있는 실행 계획으로 바꿉니다.</p></div><button class="primary-button" id="newRoadmapBtn">+ 새 로드맵</button></div>
+
+          <div class="roadmap-summary">
+            <div class="metric"><span>올해 핵심 과제</span><strong>3</strong></div>
+            <div class="metric"><span>진행 중 실행 항목</span><strong>8</strong></div>
+            <div class="metric"><span>전체 진행률</span><strong>42%</strong></div>
+          </div>
+
+          <div class="roadmap-grid">
+            <section class="panel roadmap-main">
+              <div class="panel-title"><div><span class="eyebrow">2027 핵심 방향</span><h3>새가족 정착과 다음 세대 강화</h3></div><button class="text-button" id="editRoadmapBtn">수정</button></div>
+              <div class="timeline-item"><span class="quarter">1분기</span><div><strong>현황 진단 및 담당팀 구성</strong><p>새가족 이탈 지점 파악, 담당자 4명 구성</p><div class="progress"><i style="width:80%"></i></div></div></div>
+              <div class="timeline-item"><span class="quarter">2분기</span><div><strong>4주 정착 과정 시범 운영</strong><p>교육안, 환영 키트, 후속 연락 체계 마련</p><div class="progress"><i style="width:45%"></i></div></div></div>
+              <div class="timeline-item"><span class="quarter">3분기</span><div><strong>청년·다음 세대 리더 훈련</strong><p>8주 과정 운영, 리더 5명 양성 목표</p><div class="progress"><i style="width:20%"></i></div></div></div>
+              <div class="timeline-item"><span class="quarter">4분기</span><div><strong>평가 및 2028 계획 수립</strong><p>정착률·참여율 평가 후 개선안 문서화</p><div class="progress"><i style="width:0%"></i></div></div></div>
+            </section>
+
+            <aside class="panel roadmap-ai">
+              <span class="eyebrow">AI 제안</span>
+              <h3>다음으로 무엇을 정리할까요?</h3>
+              <button class="suggestion" data-roadmap-task="report">당회 보고용 1페이지 요약</button>
+              <button class="suggestion" data-roadmap-task="meeting">교역자 회의 실행 체크리스트</button>
+              <button class="suggestion" data-roadmap-task="members">성도 공유용 비전 문서</button>
+              <button class="suggestion" data-roadmap-task="review">성과지표 점검표</button>
+            </aside>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose">×</button>
+      <span class="eyebrow">AI 작업 도우미</span>
+      <h2 id="modalTitle">작업 시작</h2>
+      <p id="modalDesc"></p>
+      <div id="modalBody"></div>
+      <div class="modal-actions"><button class="secondary-button" id="modalCancel">취소</button><button class="primary-button" id="modalNext">다음</button></div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
